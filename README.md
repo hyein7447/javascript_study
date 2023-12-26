@@ -52,3 +52,28 @@
 -----------------------------------
 ## 원시 데이터 : 데이터를 구성하는 가장 기본적 요소
 * 
+## array (배열)
+* array에서 index(배열순서)는 0부터 시작이고 length(배열수)는 1부터 시작이다.
+* `console.log(${nameArray.length})` -> 배열의 개수 확인
+* `nameArray(저장소이름).push('a')` -> 배열의 끝에 새로운 값을 추가한다.
+* `nameArray(저장소이름).pop()` -> 배열의 끝을 삭제한다.
+* `nameArray(저장소이름).unshift('a')` -> 배열의 시작에 새로운 값을 추가한다.
+* `nameArray(저장소이름).shift()` -> 배열의 시작 값을 삭제한다.
+* 배열의 갯수를 정해놓은 경우 배열을 추가하는 방법
+    `ex) const ooo = new Array(8)`
+        `movie[0] = 'a1';` -> index 0번자리에 a1을 대입한다
+        `movie[1] = 'b3';` -> index 1번자리에 b3을 대입한다
+* 배열의 갯수를 정해놓지 않고 마지막에 수를 제한 할 경우
+    `ex) const ooo = new Array()`
+        `megabox.push('a1')` -> 배열의 끝에 새로운 값 추가
+        `megabox.push('b3')` -> 배열의 끝에 새로운 값 추가
+        - 순서대로 값이 추가된다.
+## object (객체)
+* 한가지 저장소에 여러가지 속성을 추가할 수 있음
+* `const cat = {color:'black', age:1,}`
+* 속성명에 공백이 들어갈 경우 따옴표로 묶는다
+    ex) 'cat type':'코리안 숏헤어',
+* 여러 속성값중 선택해서 부를때는 배열로 부를 수 있다. 
+    `ex) console.log(${cat.color[1]})`
+* 속성값을 변경하고 싶을 때는 대입연산자를 사용한다.
+    ex) `cat.parcel = '중성화 완료'`
