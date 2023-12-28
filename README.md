@@ -77,3 +77,86 @@
     `ex) console.log(${cat.color[1]})`
 * 속성값을 변경하고 싶을 때는 대입연산자를 사용한다.
     ex) `cat.parcel = '중성화 완료'`
+
+## dom (document object model)
+
+* getElementsByTagName
+HTML에 TagNode가 2개 이상일 때 그 중 1개만 동적인 기능이 적용되어
+DOM으로 등록이 필요한 거라면 변수 지정 시 [index] 설정하고 대입하기
+
+* HTML에 TagNode가 2개 이상일 때 그 중 여러 개에 동적인 기능이 적용되어
+DOM이 된다면 변수 지정 시에는 [index]없이 대입하고
+해당 DOM 변수 호출 시 필요한 경우 [index] 사용하기
+
+ex)
+const h1Tag = document.getElementsByTagName('h1')[0] //1~2개 동적기능 사용
+console.log(h1Tag[0]); // 여러개 동적기능 사용
+-> 여러개중 1~2개일때 변수에 [index], 여러개중 여러개일 때 호출에 [index]
+
+
+* DOM Node 변수 지정 시
+HTMLCollection 결과는 변수가 정상인지 오류인지 간단한 확인 시에만 사용하고
+실제로 DOM Node 변수를 이용한 동적인 결과를 만들어야 할때는
+직접적인 접근으로 대상을 하나씩 개별인식하게 만들어야한다. [`index`]
+
+* getElementsByClassName
+부모의 자식 클래스 노드 를 지정할 경우 부모 변수를 먼저 작성 후
+자식 클래스 노드 변수를 지정한다. 이때 document자리에 먼저 만들었던 부모 clss 변수를 넣어 만든다.
+ex) 
+const ulTag = document.getElementsByTagName('ul')[0];
+const listCls2 = ulTag.getElementsByClassName('list')
+console.log(listCls2);
+
+* getElementById
+Id는 하나이기 때문에 Element에 복수형 s가 붙지 않으며,
+부모의 자식 Id 노드를 만들때 document자리에 부모 Id가 들어갈 수 없다.
+-> 그냥 document.getElementById('') 로 만들면된다.
+
+* querySelector
+Id, class, Tag 모두 첫번째 HTML요소를 찾아 변환해준다.
+
+* 명시적 형변환 (개발자가 직접 테이터타입을 결정)
+let a = 10
+console.log(typeof a) //number
+a = '10'
+console.log(typeof a) // string
+
+* 암시적 형변환 (자바스크립트가 동의없이 자동으로 형변환)
+prompt 받는 데이터값은 무조건 문자열로 처리된다.
+ex) let age = window.prompt('당신의 나이는?')
+    문자열로 인식하여
+    age += 1 
+    console.log(age) 로 출력할 경우 20 +1 =201 로 인식한다
+이 문제를 해결하기 위해서 Number로 형변환을 시켜준다.
+
+## value
+* form 태그에 삽입되는 값 속성 (input, option, select, button,
+textarea)
+* form 태그 내에 작성했을 땐 미리 입렵된 값 표현 가능
+* javascript 의 DOM.속성 `ex)DOM.value`로 처리했을 땐 해당 DOM의
+미리 입력된 값부터 사용자가 입력하는 신규 값까지 모두 인식할 수 있다.
+1. 쇼필몰의 상품 수량
+2. 쇼핑몰의 총 주문 가격
+3. 예약 페이지의 여행 인원 수 등등 ..
+* 주의사항 -> value속성은 form전용이므로 다른 태그일때 해당 값을 알고 싶다면 다른 속성 및 메서드를 사용해야 한다.
+* 주의사항 -> `DOM.value`로 값 처리 시 숫자를 쓰더라도 문자열 (string)으로 인식하기 때문에 필요한 경우 `Number()` 메서드를 활용해 (Number) 데이터 타입으로 변환해야 한다. ex) `Number(객체.value())`
+
+## 버튼 눌렀을 때 input:number 에 숫자가 올라가는 방법
+    <form action="#" method="get" id="orderNum">
+        <input type="number" name="num" id="num" value="0">
+        <button type="button" id="numBtn" onclick="plus()">+</button>
+    </form>
+
+    const num = document.querySelector('#num')
+    const numBtn = document.querySelector('#numBtn')
+    console.log(num,numBtn)
+
+    function plus(){
+    // console.log(num.value) // 값 출력 확인 ok
+    // console.log(num.value+1) // 더하기 출력 확인 x -> 문제확인
+    // console.log(typeof num.value) //문제해결하기 위한 데이터확인 -> number
+    // console.log(Number(num.value)+1) //더하기 확인 ok
+    // num.value = Number(num.value)+1 //출력 대상 바꿔서 확인
+    // (아래) 또다른 결과 (프로그래밍 깔끔하게 쓰기)
+    let result = Number(num.value)
+    num.value = result + 1 }
