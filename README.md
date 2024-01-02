@@ -160,3 +160,32 @@ textarea)
     // (아래) 또다른 결과 (프로그래밍 깔끔하게 쓰기)
     let result = Number(num.value)
     num.value = result + 1 }
+## EVENT
+
+- onclick : 클릭했을때
+- onmouseover : 마우스가 html 요소에 올라갔을 때
+- onmouseout : 마우스가 html 요소에서 벗어났을 때
+- onchange : input 요소의 값이 변경되었을 때
+- onsubmit : 폼 제출 버튼을 눌렀을 때
+- onload : html을 모두 로딩했을 때 (홈페이지에 들어가면 바로 뜨는 ex)팝업, 자동로그인 등..)
+
+### 이벤트 리너스 등록과 삭제
+
+addEventListener 메서드는 함수를 이용한 이벤트 지정 방식입니다.
+
+- 이벤트대상.addEventListener(이벤트종류, 이벤트콜백함수, 이벤트단계 (←생략가능))
+- 이벤트단계는 true, false(기본값) 중 하나로 설정할 수 있습니다.
+
+- 하나의 요소에 여러개의 이벤트 리스너를 등록할 수 있습니다.
+- HTML 요소를 포함 모든 DOM 노드에 이벤트 리스너를 등록할 수 있습니다.
+- 다양한 추가 메서드를 이용하여 이벤트를 정밀하게 제어할 수 있습니다.
+
+### DOM 관계속성
+
+- parentNode : 부모노드
+- parentElement : 부모 요소 참조
+- childNodes : 자식 요소 참조
+- firstChild : 첫번째 자식 노드
+- firstElementChild : 첫번째 자식 요소 참조
+- lastChild : 마지막 자식 노드
+- lastElementChild : 마지막 자식 요소 참조
