@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chat</title>
+    <style>
+        #chat {
+            background-color: #eee; border-radius: 10px;
+            width: 400px; margin: 100px auto 0; padding: 20px;
+        }
+        #chat .chat_list {
+            background-color: skyblue; height: 500px; overflow-y: auto; /* 필요할때만 스크롤 */
+            display: flex; flex-flow: column nowrap; justify-content: flex-end;
+        }
+        #chat .chat_send {
+            padding: 10px 0;
+            display: flex; justify-content: space-between;
+        }
+        #chat .chat_send #chat_txt {border: 0; outline: none; width: 300px;
+            padding: 10px; border-radius: 30px;}
+        #chat .chat_send #send_btn {
+            border: 0; color: #fff; background: #aaa; cursor: pointer;
+            padding: 10px;
+        }
+        ul {}
+        li {list-style: none; background-color: #fff;
+        border-radius: 20px; width: max-content; /* 채팅 글자 개수만큼 너비자동인식 */
+        margin-top: 10px;
+        padding: 5px 8px;}
+        span {font-size: 0.6rem; color: yellow;}
+    </style>
+</head>
+<body>
+    <div id="chat">
+        <div class="chat_list"></div>
+        <div class="chat_send">
+            <input type="text" id="chat_txt" placeholder="여기에 입력하세요">
+            <button type="button" id="send_btn">보내기</button>
+        </div>
+    </div>
+    <script src="./script/chat.js"></script>
+</body>
+</html>
