@@ -182,10 +182,36 @@ addEventListener 메서드는 함수를 이용한 이벤트 지정 방식입니�
 
 ### DOM 관계속성
 
-- parentNode : 부모노드
+- parentNode : 부모노드 (텍스트, 공백 포함)
 - parentElement : 부모 요소 참조
-- childNodes : 자식 요소 참조
-- firstChild : 첫번째 자식 노드
+- childNodes : 자식 요소 참조 
+- firstChild : 첫번째 자식 노드 (텍스트, 공백 포함)
 - firstElementChild : 첫번째 자식 요소 참조
-- lastChild : 마지막 자식 노드
+- lastChild : 마지막 자식 노드 (텍스트, 공백 포함)
 - lastElementChild : 마지막 자식 요소 참조
+- previousSibling : 이전 형제 노드 (텍스트, 공백 포함)
+- previousElementSibling : 이전 형제 요소
+- nextSibling : 다음 형제 노드 (텍스트, 공백 포함)
+- nextElementSibling : 다음 형제 요소
+
+1. parentNode 부모 노드, parentElement 부모 요소
+    - parentNode, parentNode 연속 사용 (부모의 부모 잡기)
+    -자식 또는 자손노드, parentElement (특정 자식의 부모 잡기)
+2. javascript 에서 css 제어하기 -> style 속성
+    -DOM.관계.style = "속성: 값; 속성: 값;"
+    * (위) style 2번 이상 생성 시 이전 속성:값 제거됨
+    -DOM.관계.관계.style.속성 = "값";
+    * (위) style 2번 이상 생성 시 기존 속성값에 이어서 추가됨
+    -DOM.style.속성 = "값";
+    -위 관계는 필요에 따라 선택 속성
+
+#### 텍스트 노드 인덱스 출력
+- ex) consol.log(header.childNodes) <- 정보확인용
+      consol.log(header.childNodes[0]) <- 직접 접근용
+      consol.log(header.childNodes[0].data) 데이터 읽기
+      consol.log(header.childNodes[0].length) 긁자수 읽기
+      consol.log(header.childNodes[0].baseURI) 경로 읽기
+
+#### 노드안에 innerText 변경
+- ex) headerChild[1].childNodes[0].innerText = "로고";
+      headerChild[1].children[0].innerHTML = "로고로고";
