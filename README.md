@@ -215,3 +215,19 @@ addEventListener 메서드는 함수를 이용한 이벤트 지정 방식입니�
 #### 노드안에 innerText 변경
 - ex) headerChild[1].childNodes[0].innerText = "로고";
       headerChild[1].children[0].innerHTML = "로고로고";
+
+# 객체.innerHTML
+* `객체.innerHTML;` 특정 객체의 자식, 자손 HTML 읽기
+* `객체.innerHTML = 값;` HTML 삽입 및 변경
+# innerText
+* `객체.innerText;` 특정 객체의 자식, 자손 텍스트 노드 읽기 (HTML X)
+* `객체.innerText = 값;` 텍스트 노드 삽입 및 변경 (HTML X)
+# appendChild
+* `객체.appendChild()`
+* `객체.객체.appendChild()`
+* `객체.속성.appendChild()`
+* `객체.속성.속성.appendChild()`
+* 객체의 마지막 자식 노드 위치에 `()` 괄호 안 값 추가
+# createElement
+* `document.createElemnet()`
+* 요소 노드 자바스크립트 내에서 동적인 용도로 생성할 경우
