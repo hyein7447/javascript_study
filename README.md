@@ -255,3 +255,25 @@ addEventListener 메서드는 함수를 이용한 이벤트 지정 방식입니�
 ### 논리 연산자 우선순위
 - () >> Not(!) >> AND(&&) >> OR(||)
 ex) result = (true || false) && !false; // true
+
+## JS class
+- inline style 적용되는 js css 명령어 활용
+- 우선순위가 가장 높아 다른 css 충돌없이 우선적용
+- 제한 없이 다양한 css속성을 가지고 있는 class를 생성해서 DOM에 적용하는법
+ ex)`li[1].classList.add('design_set1','design_set2')`
+    `li[1].classList.remove('design_set1','design_set2')`
+    스타일에 class를 만든 후 DOM에 적용한다.
+    추가 시 에는 `add`, 제거 시 에는 `remove`
+    여러개의 class를 적용할 때에는 '','' 으로 연속해서 추가한다.
+### css (스타일)의 적용되는 우선순위
+
+* 인라인 > #(아이디) > .(클래스) > Tag(태그)**
+* 중복되는 속성의 값을 우선순위 다 무시하고 제일 우선으로 적용하는법 ( `!important` )
+
+### 버튼 class 제어
+- 버튼 이벤트로 class 스타일 출력
+ex) `onoff.addEventListener('click', ()=>{`
+    `li[0].classList.toggle('showhide')})`
+    스타일에 showhide 라는 class 스타일을 생성후 onoff 라는 버튼을 클릭시
+    `li[0]`에 showhide 스타일 적용
+
