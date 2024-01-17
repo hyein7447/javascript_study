@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegEx</title>
+</head>
+<body>
+    <input type="text" placeholder="아이디를 입력하세요" id="userId">
+    <script>
+        const userIdInput = document.querySelector('#userId')
+        console.log(userId)
+        const regex1 = /\d{3}-\d{4}-\d{4}/
+        console.log(regex1.test('010-1234-1234')) //true
+        console.log(regex1.test('010-1234-134')) //false
+
+        //아이디 영어만 입력가능
+        userIdInput.addEventListener('input',()=>{
+            if(!/^\d+$/.test(userIdInput.value)){
+                alert('숫자만 입력 가능합니다.')
+                userIdInput.value = ''
+            }
+/*             if(!/^[a-zA-Z]+$/.test('userIdInput.value')){
+                alert('영어만 입력 가능합니다.')
+            } */
+        })
+
+        // 정규표현식 RegEx
+        // "/" 정규표현식의 시작&끝
+        let result =
+        /별로|최악|비추/.test('구매하지마세요. 진짜 별로에요!')
+        console.log(result)
+        
+        result = /fool/i.test('Im not a Fool')
+        console.log(result)
+
+
+    </script>
+</body>
+</html>
