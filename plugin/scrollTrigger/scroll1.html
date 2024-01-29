@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scroll-1</title>
+    <style>
+        .bg {
+            height: 1500px; width: 100%; font-size: 10rem; color: #fff;
+            background-size: cover; background-position: center;
+            display: block;
+        }
+        .bg1 {background-image: url(https://images.unsplash.com/photo-1698681889353-d39a24b78bac?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Nnx8fGVufDB8fHx8fA%3D%3D);}
+        .bg2 {background-image: url(https://images.unsplash.com/photo-1689001225123-05b8eb4769c3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MjB8fHxlbnwwfHx8fHw%3D);}
+        .bg3 {background-image: url(https://images.unsplash.com/photo-1698005158553-c7653d06e6dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTl8fHxlbnwwfHx8fHw%3D);}
+        .bg4 {background-image: url(https://images.unsplash.com/photo-1697659975441-eb6c94a48c1a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8fA%3D%3D);}
+
+        .design1 {
+            font-weight: 800;
+            color: #f00 !important;
+            transform: scale(1.8) translateX(300px);
+            transition: 2s;
+        }
+    </style>
+</head>
+<body>
+    <h1>scrollTrigger-javascript plugin</h1>
+    <dl>
+        <dt>스크롤 트리거란?</dt>
+        <dd>javascript window.scroll, offsetTop, getBoundingClientRect 등의
+            스크롤 함수를 이용한 동적 애니메이션을 쉽게 만들 수 있게 제작된
+            자바스크립트 플러그인 종류 중 하나이다.
+        </dd>
+        <dd>사용하기 위해서는 관련 CDN을 반드시 연결하고 이용해야한다.</dd>
+    </dl>
+    <div class="bg bg1"><h2>1</h2></div>
+    <div class="bg bg2"><h2>2</h2></div>
+    <div class="bg bg3"><h2>3</h2></div>
+    <div class="bg bg4"><h2>4</h2></div>
+    <!-- 스크롤 트리거 CDN(필수연결) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+
+        //scrollTrigger 기본문법
+        //gsap.to('적용대상',{scrollTrigger:'뷰포트대상',애니메이션속성:값, 속성:값})
+        // 보이는 영역(뷰포트대상)에 적용대상을 애니메이션 하겠다
+/*         gsap.to('.bg2 h2',{
+            scrollTrigger:'.bg2',
+            duration:2,
+            x:300,
+            y:100,
+            opacity:0.5,
+        })
+        gsap.to('.bg1 span',{
+            scrollTrigger:'.bg1',
+            duration:3,
+            rotation:360,
+        }) */
+
+        //scrollTirgger 기본문법2. 시작과 끝 설정
+        //gsap.fromTo('적용대상',{from시작속성:값},{To끝속성:값})
+        //scrollTrigger , duration 속성은 To에 들어간다.
+/*         gsap.fromTo('.bg2 h2',{
+            opacity:0,
+        },{
+            scrollTrigger:'.bg2',
+            duration:5,
+            rotation:360,
+            opacity:1,
+        }) */
+        
+        const bg_h2 = document.querySelectorAll('.bg h2')
+        console.log(bg_h2)
+
+/*         for(let i of bg_h2){
+            gspa.to(i,{
+                scrollTrigger:i.parentElement,
+                duration:1,
+                delay:0.5,
+                opacity:0.5,
+                x:400,
+            })
+        } */
+/*         for(let i of bg_h2){
+            gsap.fromTo(i,
+                {
+                opacity:0
+                },
+                {
+                    scrollTrigger:i.parentElement,
+                    opacity:1,
+                    duration:1,
+                    delay:0.5,
+                })
+        } */
+        //scrollTrigger 기본문법3. 자바스크립트와 다양한 연동방법
+        //ScrollTrigger.create({trigger:'대상',속성:값, 속성:값})
+        
+        ScrollTrigger.create({
+            trigger:'.bg2 h2',
+            duration:1,
+            start:'0 40%',
+            markers:true,
+            onEnter:()=>bg_h2[1].classList.add('design1')
+        })
+    </script>
+</body>
+</html>
