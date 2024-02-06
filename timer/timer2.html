@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>timer2</title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        .slider_wrap {
+            width: 500px; border: 1px solid #000;
+            margin: 0 auto;
+        }
+        .slider_wrap .slide_container {
+            position: relative; transform: translateX(50%); left: -50%;
+        }
+        .slider_wrap .slide_container .slide {
+            width: 500px; height: 350px; font-size: 5rem;
+            position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.5s;
+        }
+        .slider_wrap .slide_container .slide1 {background: aqua; opacity: 1;}
+        .slider_wrap .slide_container .slide2 {background: tomato;}
+        .slider_wrap .slide_container .slide3 {background: yellow;}
+        .slide_transition {transition: transform 0.5s;}
+    </style>
+</head>
+<body>
+    <div class="slider_wrap">
+        <div class="slide_container">
+            <div class="slide slide1">1</div>
+            <div class="slide slide2">2</div>
+            <div class="slide slide3">3</div>
+        </div>
+    </div>
+    <script>
+
+        const slides = document.querySelectorAll('.slide')
+        let num = 0; 
+        // 1->2->3(if)=>0->1->2 .. (반복 / opacity 기준)
+        let timer = setInterval(slide_timer, 1000)
+        function slide_timer(){
+            num++
+            if(num >= slides.length){
+                for(let i of slides){i.style.opacity =0}
+                num = 0
+            }
+            slides[num].style.opacity=1
+            console.log(num)
+        }
+
+    </script>
+</body>
+</html>

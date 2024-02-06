@@ -277,3 +277,38 @@ ex) `onoff.addEventListener('click', ()=>{`
     스타일에 showhide 라는 class 스타일을 생성후 onoff 라는 버튼을 클릭시
     `li[0]`에 showhide 스타일 적용
 
+// 비동기 Que 활용1. 콜백함수 (callback functions)
+// 특정 작업이 완료될 때 까지 기다리지 않고 다음 코드를 싱행하는 함수
+// 네트워크 요청, 파일 읽기, 타이머, 이벤트 동작 등
+// 비동기 처리 => 콜백함수, Promise, ECMA6 async/await
+
+//콜백함수란?
+//함수의 매개변수로 전달되어 필요할 때 호출되는 함수개념
+//콜백은 콜백에서 콜백 쌓아서 부르는게 가능하기 때문에 코드가 자칫 복잡해 질 수 있어서
+//콜백헬(callback hell)이란 별명을 가지고 있다.
+
+/*         function func1(call){
+    setTimeout(()=>{
+        console.log('A')
+    },1000)
+    setTimeout(()=>{
+        console.log('C')
+    },500)
+    call()
+}
+function func2(){
+    console.log('B')
+}
+func1(()=>{func2()}) */ //callback function
+
+
+// 비동기 Que 활용2. 프로미즈(promise) ES6
+/* 
+프로미즈는 서버에서 받아온 JSON, DB, API 등의 코드를 수행하는 JS
+대기 (pending) 이행 (fulfilled) 실패 (rejected) 프로미즈의 3개념
+
+이행(제한x , 계속 필요한 만큼 선언) -> then
+실패(1번 만 사용가능) -> catch 
+
+프로미즈 : 비동기 작업의 성공과 실패를 나타내는 객체(함수)이다.
+*/
