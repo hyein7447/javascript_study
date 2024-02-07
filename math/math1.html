@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>math-1</title>
+</head>
+<body>
+    <input type="text" name="txt" id="txt">
+    <input type="number" name="num" id="num" value="1">
+    <button type="button" id="btn">click</button>
+    <p class="result"></p>
+    <script>
+
+        const txt = document.querySelector('#txt')
+        const num = document.querySelector('#num')
+        const btn = document.querySelector('#btn')
+        const result = document.querySelector('.result')
+        let min_result
+        console.log(txt, num, btn, result)
+
+        btn.addEventListener('click',()=>{
+
+            min_result = Math.min(data[0].price,data[1].price,data[2].price)
+            for(let i of data){
+                console.log(i)
+                if(i.price == min_result){
+                    result.innerHTML = i.name + i.price + '원'
+                }
+            }
+/*          txt.value = Math.min(1, 10, -100)
+            num.value = Math.min(1,2,3,4,5) */
+            /* txt.value = Math.abs(-1.5)
+            num.value = Math.abs(-10) */
+            /* txt.value = Math.round(123.456)
+            num.value = Math.round(1.6) */
+            /* txt.value = Math.ceil(123.456)
+            num.value = Math.ceil(1.2) */
+            /* txt.value = Math.floor(Math.random()*5) */ // 소수점의 랜덤 숫자를 0~5사이의 랜덤 숫자를 뽑는다
+            /* num.value = Math.floor(Math.random()*10) */ //소수점의 랜덤 숫자를 0~10사이의 랜덤 숫자를 뽑는다
+/*          txt.value = Math.random()
+            num.value = Math.random() */
+/*          txt.value = Math.PI
+            num.value = Math.PI */
+
+
+        })
+
+    </script>
+    <script src="./data.js"></script>
+</body>
+</html>
